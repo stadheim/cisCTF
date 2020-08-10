@@ -19,7 +19,7 @@ CTF User Mode: User mode
 - Administration
 Admin Username: admin
 Admin Email: cisctf.forsvaret@gmail.com
-Admin Password: Password99erikkeetbrapassord!
+Admin Password: *********
 - Style
 Theme: core
 Theme Color: #5D1869
@@ -103,7 +103,7 @@ Hva er en CTF? <a href="https://www.youtube.com/watch?v=8ev9ZX9J45A">Trykk her f
 
 5. Skru av tjenesten (sudo docker-compose stop)
 6. Skru av VM
-7. I VMware Workstation: VM > Upload...
+7. I VMware Workstation: VM > Manage  > Upload...
 8. Følg Wizard for å laste VM opp på 10.36.10.30 under CIS
 9. Trykk på cisCTF inne på serveren
 10. Sett riktig MAC-adresse FØR oppstart:
@@ -119,6 +119,7 @@ Inne i terminalen: ip a
 - I filstrukturen: Besøk mappen "CTFd" og så filen "docker-compose.yml"
 - Finn: ports "8000:8000"
 - Endre til: ports "80:8000"
+- (port 80 er standard for HTTP)
 - Inne i terminalen til VMet: sudo docker-compose start
 - Send melding til Kaptein Bøe om å koble ip adressen til DNS: www.ctf.cis/
 13. Besøk nettsiden på www.ctf.cis/ på en datamaskin koblet til "Internet"-internettet.
