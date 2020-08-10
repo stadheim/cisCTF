@@ -19,7 +19,7 @@ CTF User Mode: User mode
 - Administration
 Admin Username: admin
 Admin Email: cisctf.forsvaret@gmail.com
-Admin Password: *********
+Admin Password: **********
 - Style
 Theme: core
 Theme Color: #5D1869
