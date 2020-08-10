@@ -94,7 +94,9 @@ Det er verdt å merke seg at hver CTF som regel har en "Rating weight" der høye
   </div>
 </body>
 
-5. Skru av tjenesten (sudo docker-compose stop)
+5. Skru av tjenesten i terminalen:
+sudo docker-compose stop
+
 6. Skru av VM
 7. I VMware Workstation: VM > Manage  > Upload...
 8. Følg Wizard for å laste VM opp på 10.36.10.30 under CIS
@@ -105,13 +107,16 @@ Lim inn: 00:0E:29:A6:27:55
 
 11. Start opp VM inne på serveren
 12. Logg inn og sjekk at ip adressen er satt til 10.36.10.36
-Inne i terminalen: ip a
-13. Start opp VM igjen med: sudo docker-compose start
-14. Besøk nettsiden på 10.36.10.36:8000 på en datamaskin koblet til "Internet"-internettet.
-15. Sett opp nettsiden opp til domenet ctf.cis/
+- Inne i terminalen: ip a
+13. Start opp VM igjen gjennom terminalen:
+sudo docker-compose start
+
+14. Besøk nettsiden på 10.36.10.36:8000 på en datamaskin koblet til "Internet"-internettet
+- Start feilsøkning om den ikke er oppe nå
+15. Sett opp nettsiden opp mot domenet www.ctf.cis/
 - Inne i terminalen til VMet: sudo docker-compose stop
 - I filstrukturen: Besøk mappen "CTFd" og så filen "docker-compose.yml"
-- Finn: ports "8000:8000"
+- Finn linjen med: ports "8000:8000"
 - Endre til: ports "80:8000"
 - (port 80 er standard for HTTP)
 - Inne i terminalen til VMet: sudo docker-compose start
