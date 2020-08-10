@@ -50,7 +50,7 @@ Trykk på Admin panel (verktøy-ikon):
   	<h1 style="color:#5D1869;">Velkommen til cisCTF!</h1>
     <p style="margin-bottom:5%;">
       Cyberingeniørskolens "offisielle" CTF</br></br>Hva er capture the flag? <a onclick="intro()" style="color:#9326A6;cursor:pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#9326A6'">Trykk her for å finne ut!</a>
-</br>Dette er en jeopardy der oppgaver vil bli publisert månedlig (hver gang vi får penger på konto) under "Challenges".</br>Og hvis du sliter:</p>
+</br>Dette er en jeopardy der oppgaver vil bli publisert månedlig under "Challenges" (hver gang vi får penger på konto).</br>Og hvis du sliter:</p>
 	<h2 href="http://google.com/" style="text-decoration:none;color:#5D1869;">JUST GOOGLE IT!</h2>
   </div>
 </body>
