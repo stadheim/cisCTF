@@ -102,12 +102,13 @@ Det er verdt å merke seg at hver CTF som regel har en "Rating weight" der høye
 10. Sett riktig MAC-adresse FØR oppstart:
 VM > Settings > Network adapter > Advanced
 Lim inn: 00:0E:29:A6:27:55
-10. Start opp VM inne på serveren
-11. Logg inn og sjekk at ip adressen er satt til 10.36.10.36
+
+11. Start opp VM inne på serveren
+12. Logg inn og sjekk at ip adressen er satt til 10.36.10.36
 Inne i terminalen: ip a
-12. Start opp VM igjen med: sudo docker-compose start
-13. Besøk nettsiden på 10.36.10.36:8000 på en datamaskin koblet til "Internet"-internettet.
-14. Sett opp nettsiden opp til domenet ctf.cis/
+13. Start opp VM igjen med: sudo docker-compose start
+14. Besøk nettsiden på 10.36.10.36:8000 på en datamaskin koblet til "Internet"-internettet.
+15. Sett opp nettsiden opp til domenet ctf.cis/
 - Inne i terminalen til VMet: sudo docker-compose stop
 - I filstrukturen: Besøk mappen "CTFd" og så filen "docker-compose.yml"
 - Finn: ports "8000:8000"
@@ -115,4 +116,4 @@ Inne i terminalen: ip a
 - (port 80 er standard for HTTP)
 - Inne i terminalen til VMet: sudo docker-compose start
 - Send melding til Kaptein Bøe om å koble ip adressen til DNS: www.ctf.cis/
-13. Besøk nettsiden på www.ctf.cis/ på en datamaskin koblet til "Internet"-internettet.
+16. Besøk nettsiden på www.ctf.cis/ på en datamaskin koblet til "Internet"-internettet.
