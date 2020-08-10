@@ -42,61 +42,54 @@ Trykk på Admin panel (verktøy-ikon):
 
 + route: index
 + Content:
-<body>
-  <div class="text-center" style="margin-top:10%;">
-  	<p style="color:#5D1869;font-size:80px;">Velkommen til cisCTF!</p>
-	<p style="font-size:30px;margin-bottom:10%;">Cyberingeniørskolens "offisielle" CTF.
-Hva er en CTF? <a href="https://www.youtube.com/watch?v=8ev9ZX9J45A">Trykk her for å finne ut.</br></a> Dette er en jeopardy der oppgaver vil bli publisert månedlig under "Challenges", frem til det er det bare å spille andre CTFer som Wargames og PicoCTF! Og hvis du sliter:</p>
-	<a href="http://google.com/" style="text-decoration:none;color:#5D1869;font-size:80px;">JUST GOOGLE IT!</a>
-  </div>
-</body>
-
-+ CTFtime - https://ctftime.org/
-+ Title: CTFtime
-+ Route: /ctftime
-+ Content:
 <script>
-	window.onload = function() {window.open("https://ctftime.org/","_blank");};
+  	function intro() {window.open("https://www.youtube.com/watch?v=8ev9ZX9J45A","_blank");};
 </script>
 <body>
   <div class="text-center" style="margin-top:5%;">
-  	<p style="color:#5D1869;font-size:40px;">CTFtime</p>
-	<p style="font-size:30px;margin-bottom:10%;">
-    	Denne nettsiden er en oversikt over ulike CTFer som pågår verden rundt. Man kan delta på de fleste og dermed løse mer enn kun pico og wargames.
-        </br></br>Det er verdt å merke seg at de ulike har en "Rating weight" der høyere tall tilsier en vanskeligere CTF. I begynnelsen kan de være lurt å velge de som er under 20.
-        </br></br>Og hvis man ønsker kan man lage konto som registrer hvilken plass en endte der man deltok.
+  	<h1 style="color:#5D1869;">Velkommen til cisCTF!</h1>
+    <p style="margin-bottom:5%;">
+      Cyberingeniørskolens "offisielle" CTF</br></br>Hva er capture the flag? <a onclick="intro()" style="color:#9326A6;cursor:pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#9326A6'">Trykk her for å finne ut!</a>
+</br>Dette er en jeopardy der oppgaver vil bli publisert månedlig (hver gang vi får penger på konto) under "Challenges".</br>Og hvis du sliter:</p>
+	<h2 href="http://google.com/" style="text-decoration:none;color:#5D1869;">JUST GOOGLE IT!</h2>
+  </div>
+</body>
+
++ Title: Resources
++ Route: /resources
++ Content:
+<script>
+    function cyberchef() {window.open("https://gchq.github.io/CyberChef/","_blank");};
+  	function picoctf() {window.open("https://2019game.picoctf.com/","_blank");};
+	function wargames() {window.open("https://overthewire.org/wargames/","_blank");};
+    function ctftime() {window.open("https://ctftime.org/","_blank");};
+</script>
+<body>
+  <div class="text-center" style="margin-top:3%;">
+  	<a id="overskrift" onclick="cyberchef()" style="color: #5D1869;font-size:25px;cursor: pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#5D1869'">CyberChef</a>
+	<p style="font-size:15px;">
+Hjelpemiddel for å løse oppgaver. Her er det verktøy for å gjøre alt fra en enkel XOR operasjon til å knekke AES kryptering, så slipper man gjøre det for hånd eller programmere noe eget!
     </p>
   </div>
-</body>
 
-+ picoCTF - https://2019game.picoctf.com/
-+ Title: picoCTF
-+ Route: /picoctf
-+ Content:
-<script>
-	window.onload = function() {window.open("https://2019game.picoctf.com/","_blank");};
-</script>
-<body>
-  <div class="text-center" style="margin-top:5%;">
-  	<p style="color:#5D1869;font-size:40px;">picoCTF</p>
-	<p style="font-size:30px;margin-bottom:10%;">
-    	picoCTF er en CTF som begynner enkelt og gradvis øker vanskelighetsgraden. Det er hint og veiledning i hver oppgave som gjør at man kan lære imens man løser oppgavene. Etterhvert som man får til flere oppgaver innen en kategori vil flere, vanskeligere oppgaver av samme kategori bli tilgjengelig.
+  <div class="text-center" style="margin-top:3%;">
+  	<a id="overskrift" onclick="picoctf()" style="color: #5D1869;font-size:25px;cursor: pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#5D1869'">picoCTF</a>
+	<p style="font-size:15px;">
+picoCTF er en CTF som begynner enkelt og øker vanskelighetsgraden gradvis. Det er hint og veiledning i hver oppgave som gjør at man kan lære imens man løser oppgavene. Etterhvert som man får til flere oppgaver innen en kategori vil flere, vanskeligere oppgaver av samme kategori bli tilgjengelig.
+    </p>
+
+  <div class="text-center" style="margin-top:3%;">
+  	<a id="overskrift" onclick="wargames()" style="color: #5D1869;font-size:25px;cursor: pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#5D1869'">Wargames</a>
+	<p style="font-size:15px;">
+Her er det mange ulike oppgaver du kan løse. Den skiller seg noe ut fordi en må koble seg til oppgaven gjennom terminalen, men å lære seg å bruke terminalen hyppig er bare en fordel.
     </p>
   </div>
-</body>
 
-+ Wargames - https://overthewire.org/wargames/
-+ Title: Wargames
-+ Route: /wargames
-+ Content:
-<script>
-	window.onload = function() {window.open("https://overthewire.org/wargames/","_blank");};
-</script>
-<body>
-  <div class="text-center" style="margin-top:5%;">
-  	<p style="color:#5D1869;font-size:40px;">Wargames</p>
-	<p style="font-size:30px;margin-bottom:10%;">
-    	Her er det mange ulike oppgaver du kan løse. Den skiller seg noe ut fra CTF fordi en må koble seg til oppgaven gjennom terminalen. Å være kjent med terminalen og hvordan bruke er fordel i fag som Datakommunikasjon og Operativssystemer.
+  <div class="text-center" style="margin-top:3%;">
+  	<a id="overskrift" onclick="ctftime()" style="color: #5D1869;font-size:25px;cursor: pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#5D1869'">CTFtime</a>
+	<p style="font-size:15px;">
+Denne nettsiden er en oversikt over ulike CTFer som pågår verden rundt. Man kan delta på de fleste og dermed løse mer enn kun pico og wargames.
+Det er verdt å merke seg at hver CTF som regel har en "Rating weight" der høyere tall tilsier en vanskeligere CTF. I begynnelsen kan de være lurt å velge de som er under 20.
     </p>
   </div>
 </body>
