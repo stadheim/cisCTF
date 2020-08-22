@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>if_else</title>
+  <script>
+    window.onload = main;
+
+    function main() {
+      d("btnAngi").onclick = sjekk;
+    }
+
+    function sjekk() {
+      var flagg = d("txtInput").value;
+      var split = 2;
+      if (flagg.substring(split*13, split*14) == '}') {
+        if (flagg.substring(0, split) == 'ci') {
+          if (flagg.substring(split, split*2) == 'sC') {
+            if (flagg.substring(split*10, split*11) == '_5') {
+              if (flagg.substring(split*3, split*4) == '{b') {
+                if (flagg.substring(split*5, split*6) == '3_') {
+                  if (flagg.substring(split*2, split*3) == 'TF') {
+                    if (flagg.substring(split*8, split*9) == 'nk') {
+                      if (flagg.substring(split*12, split*13) == 'kk') {
+                        if (flagg.substring(split*4, split*5) == '4r') {
+                          if (flagg.substring(split*7, split*8) == '_3') {
+                            if (flagg.substring(split*11, split*12) == 'j3') {
+                              if (flagg.substring(split*6, split*7) == '3n') {
+                                if (flagg.substring(split*9, split*10) == '3l') {
+                                  riktig();
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      else {
+        feil();
+      }
+    }
+
+    function riktig() {
+      document.body.style.backgroundColor = "red";
+      document.body.style.visibility = "hidden";
+      setTimeout(function(){
+        document.body.style.backgroundColor = "green";
+        document.body.style.visibility = "visible";
+        d("overskrift").innerHTML = "RIKTIG FLAGG!<br>Håper du fortsatt husker det";
+      }, 1500);
+
+    }
+    function feil() {
+      document.body.style.backgroundColor = "red";
+      document.body.style.visibility = "hidden";
+      //3 sekunder lockdown
+      setTimeout(function(){
+        document.body.style.backgroundColor = "#5d1869";
+        document.body.style.visibility = "visible";
+        alert("Feil flagg");
+      }, 3000);
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #5d1869;
+    }
+    #overskrift {
+      font-size: 5vh;
+      text-align: center;
+      margin-top: 40vh;
+    }
+  </style>
+</head>
+<body>
+  <div id="overskrift">Gi meg riktig flag:<br>
+    <input type="text" id="txtInput" maxlength="32" onkeydown="if (event.keyCode == 13) {sjekk();}">
+    <button id="btnAngi">Angi</button>
+  </div>
+
+
+</body>
+</html>
