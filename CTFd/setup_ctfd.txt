@@ -8,7 +8,9 @@ pip3 install -r requirements.txt
 sudo docker-compose up
 
 2. Åpne en nettleser i VMet
+
 3. Gå inn på localhost:8000
+
 4. Sett opp nettsiden:
 
 + Setup
@@ -19,7 +21,7 @@ CTF User Mode: User mode
 - Administration
 Admin Username: admin
 Admin Email: cisctf.forsvaret@gmail.com
-Admin Password: **********
+Admin Password: ******
 - Style
 Theme: core
 Theme Color: #5D1869
@@ -40,31 +42,46 @@ Trykk på Admin panel (verktøy-ikon):
 - Legge til pages
 	Admin Panel (skiftenøkkelen) > Pages > New Page
 
++ Title: None
 + route: index
 + Content:
-<script>
-  	function intro() {window.open("https://www.youtube.com/watch?v=8ev9ZX9J45A","_blank");};
-</script>
 <body>
   <div class="text-center" style="margin-top:5%;">
   	<h1 style="color:#5D1869;">Velkommen til cisCTF!</h1>
     <p style="margin-bottom:5%;">
-      Cyberingeniørskolens "offisielle" CTF</br></br>Hva er capture the flag? <a onclick="intro()" style="color:#9326A6;cursor:pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#9326A6'">Trykk her for å finne ut!</a>
+      Cyberingeniørskolens "offisielle" CTF</br></br>
 </br>Dette er en jeopardy der oppgaver vil bli publisert månedlig under "Challenges" (hver gang vi får penger på konto).</br>Og hvis du sliter:</p>
 	<h2 href="http://google.com/" style="text-decoration:none;color:#5D1869;">JUST GOOGLE IT!</h2>
   </div>
 </body>
 
+
 + Title: Resources
-+ Route: /resources
++ Route: resources
 + Content:
 <script>
     function cyberchef() {window.open("https://gchq.github.io/CyberChef/","_blank");};
   	function picoctf() {window.open("https://2019game.picoctf.com/","_blank");};
 	function wargames() {window.open("https://overthewire.org/wargames/","_blank");};
     function ctftime() {window.open("https://ctftime.org/","_blank");};
+  	function google() {window.open("https://google.com/","_blank");};
+	function ctfInfo() {window.open("https://www.youtube.com/watch?v=8ev9ZX9J45A","_blank");};
 </script>
 <body>
+  <div class="text-center" style="margin-top:3%;">
+  	<a id="overskrift" onclick="ctfInfo()" style="color: #5D1869;font-size:25px;cursor: pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#5D1869'">Capture the Flag</a>
+	<p style="font-size:15px;">
+      CTF er trebokstavskortelsen av "Capture the Flag".<br><a onclick="ctfInfo()" onMouseOver="this.style.color='#EAC1F1';" style="cursor:pointer;" onMouseOut="this.style.color='black'">Trykk her om du vil se en introduksjonsvideo.</a>
+    </p>
+  </div>
+
+    <div class="text-center" style="margin-top:3%;">
+  	<a id="overskrift" onclick="google()" style="color: #5D1869;font-size:25px;cursor: pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#5D1869'">Google</a>
+	<p style="font-size:15px;">
+Alt kan (og burde) googles!
+    </p>
+  </div>
+
   <div class="text-center" style="margin-top:3%;">
   	<a id="overskrift" onclick="cyberchef()" style="color: #5D1869;font-size:25px;cursor: pointer;" onMouseOver="this.style.color='#EAC1F1';" onMouseOut="this.style.color='#5D1869'">CyberChef</a>
 	<p style="font-size:15px;">
@@ -92,28 +109,60 @@ Denne nettsiden er en oversikt over ulike CTFer som pågår verden rundt. Man ka
 Det er verdt å merke seg at hver CTF som regel har en "Rating weight" der høyere tall tilsier en vanskeligere CTF. I begynnelsen kan de være lurt å velge de som er under 20.
     </p>
   </div>
+
 </body>
 
-5. Skru av tjenesten i terminalen:
-sudo docker-compose stop
-
 6. Skru av VM
+
 7. I VMware Workstation: VM > Manage  > Upload...
+
 8. Følg Wizard for å laste VM opp på 10.36.10.30 under CIS
+
 9. Trykk på cisCTF inne på serveren
+
 10. Sett riktig MAC-adresse FØR oppstart:
 VM > Settings > Network adapter > Advanced
 Lim inn: 00:0E:29:A6:27:55
 
 11. Start opp VM inne på serveren
+
 12. Logg inn og sjekk at ip adressen er satt til 10.36.10.36
 - Inne i terminalen: ip a
+
 13. Start opp VM igjen gjennom terminalen:
 sudo docker-compose start
 
 14. Besøk nettsiden på 10.36.10.36:8000 på en datamaskin koblet til "Internet"-internettet
 - Start feilsøkning om den ikke er oppe nå
-15. Sett opp nettsiden opp mot domenet www.ctf.cis/
+
+15. Få docker til å starte opp tjenesten automatisk ved restart (i tilfelle serveren skrur seg av)
+- Lag ny fil i riktig mappe gjennom terminalen:
+cd
+cd /etc/systemd/system/
+sudo nano docker-compose-app.service
+- Lim inn script som skru av og på tjenesten automatisk:
+
+# /etc/systemd/system/docker-compose-app.service
+[Unit]
+Description=Docker Compose Application Service
+Requires=docker.service
+After=docker.service
+[Service]
+WorkingDirectory=/home/cisctf/CTFd
+ExecStart=/usr/local/bin/docker-compose start
+ExecStop=/usr/local/bin/docker-compose stop
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitIntervalSec=60
+StartLimitBurst=3
+[Install]
+WantedBy=multi-user.target
+
+- OBS! Pass på at variabelen "WorkingDirectory" har riktig filpath til CTFd
+- Legg til at script kjører:
+systemctl enable docker-compose-app
+
+16. Sett opp nettsiden opp mot domenet www.ctf.cis/
 - Inne i terminalen til VMet: sudo docker-compose stop
 - I filstrukturen: Besøk mappen "CTFd" og så filen "docker-compose.yml"
 - Finn linjen med: ports "8000:8000"
@@ -121,4 +170,5 @@ sudo docker-compose start
 - (port 80 er standard for HTTP)
 - Inne i terminalen til VMet: sudo docker-compose start
 - Send melding til Kaptein Bøe om å koble ip adressen til DNS: www.ctf.cis/
-16. Besøk nettsiden på www.ctf.cis/ på en datamaskin koblet til "Internet"-internettet.
+
+17. Besøk nettsiden på www.ctf.cis/ på en datamaskin koblet til "Internet"-internettet.
