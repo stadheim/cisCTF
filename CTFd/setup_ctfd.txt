@@ -20,13 +20,12 @@ CTF Description: Forsvarets Cyberingeniørskole sin "offisielle" CTF
 CTF User Mode: User mode
 - Administration
 Admin Username: admin
-Admin Email: cisctf.forsvaret@gmail.com
+Admin Email: ctf.cistekut@gmail.com
 Admin Password: ******
 - Style
 Theme: core
 Theme Color: #5D1869
 - Hopp over resten
-
 
 Trykk på Admin panel (verktøy-ikon):
 
@@ -140,7 +139,7 @@ sudo docker-compose start
 cd
 cd /etc/systemd/system/
 sudo nano docker-compose-app.service
-- Lim inn script som skru av og på tjenesten automatisk:
+- Lim inn script som skrur av og på tjenesten automatisk:
 
 # /etc/systemd/system/docker-compose-app.service
 [Unit]
@@ -159,7 +158,7 @@ StartLimitBurst=3
 WantedBy=multi-user.target
 
 - OBS! Pass på at variabelen "WorkingDirectory" har riktig filpath til CTFd
-- Legg til at script kjører:
+- Legg til at script kjører ved boot:
 systemctl enable docker-compose-app
 
 16. Sett opp nettsiden opp mot domenet www.ctf.cis/
